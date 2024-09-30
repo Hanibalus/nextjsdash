@@ -7,6 +7,16 @@ import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
  
+
+export type State = {
+    errors?: {
+      customerId?: string[];
+      amount?: string[];
+      status?: string[];
+    };
+    message?: string | null;
+  }
+  
 const FormSchema = z.object({
     id: z.string(),
     customerId: z.string(),
